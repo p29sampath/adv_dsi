@@ -1,5 +1,5 @@
 from sklearn.model_selection import train_test_split
-from data import split_data as split
+from src.data import split_data as split
 def clean_and_split_nba_data(df,inverse=False):
     """
     Imports the file and splits it into Train, Valdiation and Test set.
