@@ -1,14 +1,25 @@
-kaggle_assignment
-==============================
+## Docker
+### Build image:
 
-Kaggle Assignment
+```bash
+docker build -t pytorch-notebook:latest .
+```
 
-Project Organization
-------------
+### Run image container
 
-    ├── LICENSE
+#### Windows (Powershell):
+```cmd
+docker run  -dit --rm --name <enter_name> -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v ""$PWD":/home/jovyan/work" -v ""$PWD\src":/home/jovyan/work/src" pytorch-notebook:latest
+```
+
+## Project Organization
+
+    ├── Dockerfile         <- Document containing build instructions for Docker image
+    ├── LICENSE            <- MIT License
     ├── Makefile           <- Makefile with commands like `make data` or `make train`
-    ├── README.md          <- The top-level README for developers using this project.
+    ├── Pipfile            <- The requirements file for managing dependency installations
+    ├── Pipfile.lock       <- Locks package versions for dependency installations
+    ├── README.md          <- The top-level README for developers using this project
     ├── data
     │   ├── external       <- Data from third party sources.
     │   ├── interim        <- Intermediate data that has been transformed.
@@ -19,19 +30,15 @@ Project Organization
     │
     ├── models             <- Trained and serialized models, model predictions, or model summaries
     │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
+    ├── notebooks          <- Jupyter notebooks. Naming convention is:
+    │                         <lastname>_<firstname>-week<week_number>_<description> e.g.
+    │                         wang_kai-ping-week1_1.0-train-data-exploration.ipynb
     │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
+    ├── references         <- Data dictionaries, manuals, and all other explanatory materials
     │
     ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
     │   └── figures        <- Generated graphics and figures to be used in reporting
     │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `pip freeze > requirements.txt`
-    │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
     ├── src                <- Source code for use in this project.
     │   ├── __init__.py    <- Makes src a Python module
     │   │
@@ -51,7 +58,7 @@ Project Organization
     │
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
 
+---
 
---------
-
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+Project based on the [cookiecutter data science project template](https://drivendata.github.io/cookiecutter-data-science)
+#cookiecutterdatascience
